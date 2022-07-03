@@ -49,7 +49,9 @@ export const fontStyle = () => {
     fs.readdir(app.path.build.fonts, function(err, fontsFiles){
         if(fontsFiles){
             // Проверяем существует ли файл стилей для подключения шрифтов
-            if(!fs.existsSync(fontsFile)){
+            // *****
+            // if(!fs.existsSync(fontsFile)){
+            !fs.existsSync(fontsFile)
                 // Если файла нет, создаем его
                 fs.writeFile(fontsFile, '', cb);
                 let newFileOnly;
@@ -90,7 +92,8 @@ export const fontStyle = () => {
                         newFileOnly = fontFileName;
                     }
                 }
-            }
+            // *** 
+            // }
             else{
                 // Если файл уже есть, выводим сообщение
                 console.log("Файл scss/fonts.scss уже существует. Для обновления файла нужно его удалить");
